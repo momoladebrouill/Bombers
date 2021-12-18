@@ -16,13 +16,11 @@ f=tk.Tk()
 f.title('Demining by momoladebrouill')
 buttons=[]
 
-def changefor(e):
+def changefor(e,a):
     W=f.winfo_width()
     H=f.winfo_height()
-    print(e.x,e.y,W,H)
-    print(e)
-    truepos=(e.x/W)*plato.w,(e.y/H)*plato.h
-    #on_click(truepos,e.num)
+    on_click(e,a.num)
+        
     
 som=lambda a,b:(a[0]+b[0],a[1]+b[1])
 nb_at= lambda pos:sum((shownplato[som(pos,i)]==1 for i in euclide))
@@ -76,11 +74,14 @@ for x in range(plato.w):
                       width=2,
                       height=1
                       )
+        but.bind('<Button-1>',partial(changefor,(x,y,1)))
+        but.bind('<Button-3>',partial(changefor,(x,y,3)))
         but.grid(row=y,column=x,sticky='NESW')
         buttons.append(but)
 
-f.bind('<Event>',changefor)
-f.focus_set()
+#f.bind('<Button>',changefor)
+
 flag="⚑"
 bomb="ﬞ"
 print(plato)
+f.mainloop()

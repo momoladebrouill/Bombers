@@ -1,7 +1,4 @@
 
-
-flag="⚑"
-bomb="ﬞ"
 class Plato():
     def __init__(self,width=7,height=6):
         self.val=0
@@ -47,8 +44,10 @@ class Plato():
                 s+=str("T" if val else " ")+" "
             s+="\n"
         return s
- 
-        
-p=Plato()
 
-
+if __name__==   "__main__":
+    flag="⚑"
+    bomb="ﬞ"
+    plato=Plato()
+    plato[0,0]=1
+    plato[0,1]=1
